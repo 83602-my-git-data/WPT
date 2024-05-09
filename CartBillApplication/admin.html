@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="divName"></div>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+      <hr />
+      <table id="mytable">
+        <tr>
+          <th>Id</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </table>
+      <hr />
+      <table id="myTable">
+        <tr>
+          <th>Sr</th>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </table>
+      <hr />
+      <hr />
+      <br />
+
+      <table border="15">
+        <tr>
+          <th>Total Bill</th>
+        </tr>
+        <tr>
+          <td id="totalprice"></td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="fetch.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      <div id="divName"></div>
+      <button onclick="logout()">Logout</button>
+      <br />
+      <br />
+      <hr />
+      <table id="mytable" border="10">
+        <tr>
+          <td>id</td>
+          <td>image</td>
+          <td>name</td>
+          <td>price</td>
+        </tr>
+        <tr></tr>
+      </table>
+    </center>
+    <script src="fetch.js"></script>
+    <script>
+      var name = window.localStorage.getItem("email");
+      document.getElementById(
+        "divName"
+      ).innerHTML = `<h1>User Name - ${name}</h1>`;
+
+      function logout() {
+        window.localStorage.removeItem("email");
+        window.location.href = "Login.html";
+      }
+      //   <tr>
+      //                     <td>id</td>
+      //                     <td>image</td>
+      //                     <td>name</td>
+      //                     <td>price</td>
+      //                     </tr>
+      var refTOmyTable = document.getElementById("mytable");
+      Fetch("GET", "data.json").then((reply) => {
+        console.log(reply);
+        reply.forEach((element) => {
+          var eachFoodMenu = `
+                    <td>${element.id}</td>
+                    <td>
+                      <div>
+                        <img
+                          src="${element.image}"
+                          style="width: 50px; height: 20px"
+                        />
+                      </div>
+                    </td>
+                    <td>${element.name}</td>
+                    <td>${element.price}</td>
+                  </tr>
+              `;
+
+          refTOmyTable.innerHTML += eachFoodMenu;
+        });
+      });
+    </script>
+  </body>
+</html> -->

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .container h1 {
+        color: #333;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table td {
+        padding: 10px;
+        border: none;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      input:focus {
+        border-color: #666;
+        outline: none;
+      }
+
+      input[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #218838;
+      }
+    </style>
+    <script>
+      function validateData() {
+        var uname = document.getElementById("uname").value;
+        var psw = document.getElementById("psw").value;
+        if (
+          uname === window.localStorage.getItem("email") &&
+          psw === window.localStorage.getItem("password")
+        ) {
+          alert("Login successful!");
+          window.location.href = "admin.html";
+        } else {
+          alert(
+            "Invalid credentials or user not registered. Please register first."
+          );
+          window.location.href = "registration.html";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login Page</h1>
+      <form onsubmit="validateData(); return false;">
+        <table>
+          <tr>
+            <td><label for="uname">Username</label></td>
+            <td>
+              <input
+                type="text"
+                id="uname"
+                name="uname"
+                placeholder="Enter Username"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="psw">Password</label></td>
+            <td>
+              <input
+                type="password"
+                id="psw"
+                name="psw"
+                placeholder="Enter Password"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input type="submit" value="Submit" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login Page</title>
+    <script>
+      function validateData() {
+        var uname = document.getElementById("uname").value;
+        var psw = document.getElementById("psw").value;
+        if (
+          uname == window.localStorage.getItem("email") &&
+          psw == window.localStorage.getItem("password")
+        ) {
+          alert("Login Username is " + uname);
+          window.location.href = "http://127.0.0.1:5500/admin.html";
+        } else {
+          alert("Register first !!");
+          window.location.href = "http://127.0.0.1:5500/registration.html";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <h1>Login Page</h1>
+      <form onsubmit="validateData(); return false;">
+        <table border="1">
+          <tr>
+            <td><label for="uname">UserName</label></td>
+            <td>
+              <input
+                type="text"
+                id="uname"
+                name="uname"
+                placeholder="Enter Username"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="psw">Password</label></td>
+            <td>
+              <input
+                type="password"
+                id="psw"
+                name="psw"
+                placeholder="Enter Password"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input type="submit" value="Submit" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html> -->
