@@ -18,6 +18,7 @@ app.get("/candidate_list", (request, response) => {
 });
 
 app.post("/login", (request, response) => {
+
   pool.query(
     `select * from voter where email='${request.body.email}' and password='${request.body.password}'`,
     (err, result) => {
@@ -25,7 +26,7 @@ app.post("/login", (request, response) => {
       if (err != null) errorResponse(response, err, 500);
       else {
         var token = jwt.sign({ result }, secretkey);
-        var res = { token: token, name: result[0].name };
+        var res = { token, name: result[0].name };
         console.log(res);
         successResponse(response, res);
       }
